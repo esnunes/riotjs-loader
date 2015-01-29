@@ -1,5 +1,85 @@
 # riotjs module loader for webpack
 
+## install
+```bash
+npm install --save-dev riot riotjs-loader 6to5 6to5-loader webpack webpack-dev-server
+```
+
+## usage
+
+### /webpack.config.js
+```javascript
+var webpack = require('webpack');
+
+module.exports = {
+  entry: './app/index',
+  output: {
+    path: __dirname + '/public',
+    filename: 'bundle.js'
+  },
+  plugins: [
+    new webpack.ProvidePlugin({
+      riot: require.resolve('./node_modules/riot')
+    })
+  ],
+  module: {
+    loaders: [
+      { test: /\.tag$/, exclude: /node_modules/, loader: 'riotjs-loader' },
+      { test: /\.js$/, exclude: /node_modules/, loader: '6to5-loader' }
+    ]
+  },
+  devServer: {
+    contentBase: './public'
+  }
+};
+```
+
+### /public/index.html
+```html
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>App</title>
+</head>
+<body>
+  <app></app>
+  <script src="bundle.js"></script>
+</body>
+</html>
+```
+
+### /app/index.js
+```javascript
+require('./app.tag');
+
+riot.mount('*');
+```
+
+### /app/app.tag
+```html
+require('./name.tag');
+
+<app>
+  <name first="Hello" last="World"></name>
+  <name first="Ola" last="Mundo"></name>
+</app>
+```
+
+### /app/name.tag
+```html
+<name>
+  <h1>{ opts.last }, { opts.first }</h1>
+</name>
+```
+
+## development
+
+```bash
+./node_modules/.bin/webpack-dev-server --inline --hot
+```
+- open http://localhost:8080/
+
 ## LICENSE
 
 (MIT License)
