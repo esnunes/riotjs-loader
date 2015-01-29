@@ -1,0 +1,17 @@
+{
+  "undef": true,
+  "unused": true,
+  "indent": 2,
+  "noempty": true,
+  "node": true,
+  "globals": {
+    "describe": false,
+    "before": false,
+    "beforeEach": false,
+    "afterEach": false,
+    "it": false,
+    "xit": false,
+    "emit": false
+  },
+  "multistr": true
+}
