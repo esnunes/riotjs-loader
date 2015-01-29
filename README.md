@@ -23,9 +23,11 @@ module.exports = {
     })
   ],
   module: {
+    preLoaders: [
+      { test: /\.tag$/, exclude: /node_modules/, loader: 'riotjs-loader', query: { type: 'none' } }
+    ],
     loaders: [
-      { test: /\.tag$/, exclude: /node_modules/, loader: 'riotjs-loader' },
-      { test: /\.js$/, exclude: /node_modules/, loader: '6to5-loader' }
+      { test: /\.js|\.tag$/, exclude: /node_modules/, loader: '6to5-loader' }
     ]
   },
   devServer: {
