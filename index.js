@@ -4,7 +4,7 @@ var compiler = require('riot/compiler/compiler');
 module.exports = function (source) {
 
   var content = source;
-  var options = {};
+  var options = loaderUtils.parseQuery(this.query);
 
   if (this.cacheable) this.cacheable();
 
