@@ -1,4 +1,5 @@
-var compiler = require('riot/compiler/compiler');
+var compiler = require('riot/compiler/compiler'),
+    loaderUtils = require('loader-utils');
 
 
 module.exports = function (source) {
