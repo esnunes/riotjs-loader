@@ -1,6 +1,6 @@
 {
   "name": "riotjs-loader",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "riotjs module loader for webpack",
   "main": "index.js",
   "scripts": {
