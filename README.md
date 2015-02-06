@@ -19,7 +19,7 @@ module.exports = {
   },
   plugins: [
     new webpack.ProvidePlugin({
-      riot: require.resolve('./node_modules/riot')
+      riot: 'riot'
     })
   ],
   module: {
