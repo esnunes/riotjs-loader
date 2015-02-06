@@ -1,4 +1,4 @@
-var compiler = require('riot/compiler/compiler'),
+var riot = require('riot'),
     loaderUtils = require('loader-utils');
 
 
@@ -27,7 +27,7 @@ module.exports = function (source) {
   });
 
   try {
-    return compiler.compile(content, options);
+    return riot.compile(content, options);
   } catch (e) {
     throw new Error(e);
   }
