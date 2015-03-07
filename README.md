@@ -2,7 +2,7 @@
 
 ## install
 ```bash
-npm install --save-dev riot riotjs-loader 6to5 6to5-loader webpack webpack-dev-server
+npm install --save-dev riot riotjs-loader babel babel-loader webpack webpack-dev-server
 ```
 
 ## usage
@@ -27,7 +27,7 @@ module.exports = {
       { test: /\.tag$/, exclude: /node_modules/, loader: 'riotjs-loader', query: { type: 'none' } }
     ],
     loaders: [
-      { test: /\.js|\.tag$/, exclude: /node_modules/, loader: '6to5-loader' }
+      { test: /\.js|\.tag$/, exclude: /node_modules/, loader: 'babel-loader' }
     ]
   },
   devServer: {
