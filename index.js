@@ -1,5 +1,6 @@
 var riot = require('riot'),
-    loaderUtils = require('loader-utils');
+    loaderUtils = require('loader-utils'),
+    REQUIRE_RIOT = 'var riot = require("riot");\n\n';
 
 
 module.exports = function (source) {
@@ -32,7 +33,7 @@ module.exports = function (source) {
   });
 
   try {
-    return riot.compile(content, options);
+    return REQUIRE_RIOT + riot.compile(content, options);
   } catch (e) {
     throw new Error(e);
   }
