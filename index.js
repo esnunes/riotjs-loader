@@ -1,4 +1,4 @@
-var riot = require('riot'),
+var riot = require('riot-compiler'),
     loaderUtils = require('loader-utils');
 
 
@@ -6,11 +6,6 @@ module.exports = function (source) {
 
   var content = source;
   var options = loaderUtils.parseQuery(this.query);
-
-  if (options.brackets) {
-    riot.settings.brackets = options.brackets;
-    delete options.brackets;
-  }
 
   if (this.cacheable) this.cacheable();
 
