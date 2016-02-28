@@ -7,6 +7,9 @@ module.exports = function (source) {
   var content = source;
   var options = loaderUtils.parseQuery(this.query);
 
+  var htmlOnly = options.htmlOnly;
+  delete options.htmlOnly;
+
   if (this.cacheable) this.cacheable();
 
   Object.keys(options).forEach(function(key) {
@@ -27,7 +30,11 @@ module.exports = function (source) {
   });
 
   try {
-    return riot.compile(content, options);
+    if(htmlOnly) {
+      return riot.html(content, options);
+    } else {
+      return riot.compile(content, options);
+    }
   } catch (e) {
     throw new Error(e);
   }

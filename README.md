@@ -74,6 +74,16 @@ require('./name.tag');
   <h1>{ opts.last }, { opts.first }</h1>
 </name>
 ```
+## Template compilation only
+Using the property htmlOnly with riotjs-loader permit to only compile the html template.
+
+### Example
+```javascript
+var riot = require('riot');
+var myTemplate = require('riotjs?htmlOnly!./myTemplate.html');
+
+riot.tag('demo', myTemplate);
+```
 
 ## development
 
