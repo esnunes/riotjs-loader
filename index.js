@@ -29,6 +29,10 @@ module.exports = function (source) {
   try {
     return riot.compile(content, options);
   } catch (e) {
-    throw new Error(e);
+    if (e instanceof Error) {
+      throw e;
+    } else {
+      throw new Error(e);
+    }
   }
 };
