@@ -27,7 +27,7 @@ module.exports = function (source) {
   });
 
   try {
-    return riot.compile(content, options);
+    return riot.compile(content, options, this.resourcePath);
   } catch (e) {
     if (e instanceof Error) {
       throw e;
