@@ -1,6 +1,6 @@
-var riot = require('riot-compiler'),
-    loaderUtils = require('loader-utils');
-
+var riot = require('riot-compiler');
+var loaderUtils = require('loader-utils');
+var REQUIRE_RIOT = 'var riot = require("riot");\n\n';
 
 module.exports = function (source) {
 
@@ -27,7 +27,7 @@ module.exports = function (source) {
   });
 
   try {
-    return riot.compile(content, options);
+    return REQUIRE_RIOT + riot.compile(content, options);
   } catch (e) {
     if (e instanceof Error) {
       throw e;

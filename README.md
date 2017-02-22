@@ -17,11 +17,6 @@ module.exports = {
     path: __dirname + '/public',
     filename: 'bundle.js'
   },
-  plugins: [
-    new webpack.ProvidePlugin({
-      riot: 'riot'
-    })
-  ],
   module: {
     preLoaders: [
       { test: /\.tag$/, exclude: /node_modules/, loader: 'riotjs-loader', query: { type: 'none' } }
