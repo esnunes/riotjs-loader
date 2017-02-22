@@ -1,17 +1,11 @@
-var riot = require('riot'),
-    loaderUtils = require('loader-utils'),
-    REQUIRE_RIOT = 'var riot = require("riot");\n\n';
-
+var riot = require('riot-compiler');
+var loaderUtils = require('loader-utils');
+var REQUIRE_RIOT = 'var riot = require("riot");\n\n';
 
 module.exports = function (source) {
 
   var content = source;
   var options = loaderUtils.parseQuery(this.query);
-
-  if (options.brackets) {
-    riot.settings.brackets = options.brackets;
-    delete options.brackets;
-  }
 
   if (this.cacheable) this.cacheable();
 
@@ -35,6 +29,10 @@ module.exports = function (source) {
   try {
     return REQUIRE_RIOT + riot.compile(content, options);
   } catch (e) {
-    throw new Error(e);
+    if (e instanceof Error) {
+      throw e;
+    } else {
+      throw new Error(e);
+    }
   }
 };

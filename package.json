@@ -1,6 +1,6 @@
 {
   "name": "riotjs-loader",
-  "version": "1.2.0",
+  "version": "4.0.0",
   "description": "riotjs module loader for webpack",
   "main": "index.js",
   "scripts": {
@@ -27,10 +27,10 @@
   },
   "homepage": "https://github.com/esnunes/riotjs-loader",
   "dependencies": {
-    "loader-utils": "^0.2.6"
+    "loader-utils": "^0.2.6",
+    "riot-compiler": "^3.0.0"
   },
   "peerDependencies": {
-    "riot": "^2.0.5",
     "webpack": "^1.5.3"
   }
 }
